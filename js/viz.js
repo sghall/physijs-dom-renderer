@@ -173,7 +173,7 @@
     var mtrl = new THREE.MeshBasicMaterial({wireframe: true});
     var object = new Physijs.BoxMesh(geom, mtrl, 5);
     object.rotation.set(rndm * 500, rndm * 500, rndm * 500);
-    object.position.set(rndm * 1000 - 1000, rndm * 800 - 400, rndm * 200);
+    object.position.set(rndm * 1000 - 500, rndm * 800 - 400, rndm * 200);
     object.name = "chart-" + d.value;
     scene.add(THREE.CSS3DObject.call(object, this));
   }
