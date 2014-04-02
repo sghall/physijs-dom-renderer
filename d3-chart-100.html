@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>delimited | Physijs DOM Renderer</title>
+    <title>delimited | Physijs DOM Rendering</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <link rel=stylesheet href="css/style.css">
@@ -27,6 +27,9 @@
         VIZ.drawElements(data);
         d3.select("#loading").remove();
         VIZ.render();
+        setInterval(function () {
+          VIZ.clearScene(data)
+        }, 10000);
         window.addEventListener('resize', VIZ.onWindowResize, false);
       });
     </script>

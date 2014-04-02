@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>delimited | Physijs DOM Rendering</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel=stylesheet href="css/style.css">
+  </head>
+  <body>
+    <div id="intro">
+      <h2>Rendering to DOM</h2>
+      <h3>JavaScript Physics Engine Demo</h3>
+      <p>Includes Events - Click on a chart (if you can catch one)</p>
+    </div>
+    <div id="loading">
+      <h5>Loading...</h5>
+    </div>
+    <div id="viewport"></div>
+    <script type="text/javascript" src="lib/d3.min.js"></script>
+    <script type="text/javascript" src="lib/three.min.js"></script>
+    <script type="text/javascript" src="lib/CSS3D-renderer.js"></script>
+    <script type="text/javascript" src="lib/stats.min.js"></script>
+    <script type="text/javascript" src="lib/physi.js"></script>
+    <script type="text/javascript" src="js/VIZ.js"></script>
+    <script>
+      d3.json("data/investments.json", function (error, data) {
+        VIZ.drawElements(data.filter(function (d,i) { return i < 10; }));
+        d3.select("#loading").remove();
+        VIZ.render();
+        setInterval(function () {
+          VIZ.clearScene(data.filter(function (d,i) { return i < 10; }));
+        }, 10000);
+        window.addEventListener('resize', VIZ.onWindowResize, false);
+      });
+    </script>
+    </body>
+</html>

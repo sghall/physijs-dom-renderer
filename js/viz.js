@@ -21,7 +21,7 @@
   render_stats.domElement.style.top = '1px';
   render_stats.domElement.style.zIndex = 100;
   document.getElementById('viewport').appendChild(render_stats.domElement);
-  
+
   VIZ.drawElements = function (data) {
 
     VIZ.count = data.length;
@@ -173,7 +173,7 @@
     var mtrl = new THREE.MeshBasicMaterial({wireframe: true});
     var object = new Physijs.BoxMesh(geom, mtrl, 5);
     object.rotation.set(rndm * 500, rndm * 500, rndm * 500);
-    object.position.set(rndm * 2000 - 1000, rndm * 800 - 400, rndm * 200);
+    object.position.set(rndm * 1000 - 1000, rndm * 800 - 400, rndm * 200);
     object.name = "chart-" + d.value;
     scene.add(THREE.CSS3DObject.call(object, this));
   }
@@ -183,6 +183,18 @@
     renderer.render(scene, camera);
     render_stats.update();
     scene.simulate(undefined, 1);
+  }
+
+  VIZ.clearScene = function (data) {
+    console.log(scene);
+
+  for (var i in scene._objects) {
+    if (scene._objects[i] instanceof Physijs.BoxMesh) {
+      d3.select(scene._objects[i].element).remove();
+      scene.remove(scene._objects[i]);
+    }
+  }
+  VIZ.drawElements(data);
   }
 
   VIZ.onWindowResize = function () {
