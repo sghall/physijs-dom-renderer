@@ -24,11 +24,11 @@
     <script type="text/javascript" src="js/viz.js"></script>
     <script>
       d3.json("data/investments.json", function (error, data) {
-        VIZ.drawElements(data.filter(function (d,i) { return i < 10; }));
+        VIZ.drawElements(data.filter(function (d,i) { return i < 20; }));
         d3.select("#loading").remove();
         VIZ.render();
         setInterval(function () {
-          VIZ.clearScene(data.filter(function (d,i) { return i < 10; }));
+          VIZ.clearScene(data.filter(function (d,i) { return i < 20; }));
         }, 10000);
         window.addEventListener('resize', VIZ.onWindowResize, false);
       });

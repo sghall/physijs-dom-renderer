@@ -9,7 +9,7 @@
   <body>
     <div id="intro">
       <h2>Rendering to DOM</h2>
-      <h4>JavaScript Physics Engine Demo - Reloads Every 10 Seconds</h4>
+      <h4>JavaScript Physics Engine Demo - Reloads Every 15 Seconds</h4>
       <p>Includes Events - Click on a chart (if you can catch one)</p>
     </div>
     <div id="loading">
@@ -24,11 +24,11 @@
     <script type="text/javascript" src="js/viz.js"></script>
     <script>
       d3.json("data/investments.json", function (error, data) {
-        VIZ.drawElements(data.filter(function (d,i) { return i < 25; }));
+        VIZ.drawElements(data.filter(function (d,i) { return i < 50; }));
         d3.select("#loading").remove();
         VIZ.render();
         setInterval(function () {
-          VIZ.clearScene(data.filter(function (d,i) { return i < 25; }));
+          VIZ.clearScene(data.filter(function (d,i) { return i < 50; }));
         }, 10000);
         window.addEventListener('resize', VIZ.onWindowResize, false);
       });
