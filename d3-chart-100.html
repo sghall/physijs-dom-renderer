@@ -28,7 +28,7 @@
         d3.select("#loading").remove();
         VIZ.render();
         setInterval(function () {
-          VIZ.clearScene(data)
+          VIZ.resetScene(data)
         }, 15000);
         window.addEventListener('resize', VIZ.onWindowResize, false);
       });

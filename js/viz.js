@@ -185,16 +185,14 @@
     scene.simulate(undefined, 1);
   }
 
-  VIZ.clearScene = function (data) {
-    console.log(scene);
-
-  for (var i in scene._objects) {
-    if (scene._objects[i] instanceof Physijs.BoxMesh) {
-      d3.select(scene._objects[i].element).remove();
-      scene.remove(scene._objects[i]);
+  VIZ.resetScene = function (data) {
+    for (var i in scene._objects) {
+      if (scene._objects[i] instanceof Physijs.BoxMesh) {
+        d3.select(scene._objects[i].element).remove();
+        scene.remove(scene._objects[i]);
+      }
     }
-  }
-  VIZ.drawElements(data);
+    VIZ.drawElements(data);
   }
 
   VIZ.onWindowResize = function () {
