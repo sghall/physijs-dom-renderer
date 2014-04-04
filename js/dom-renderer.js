@@ -2,21 +2,6 @@
 // Adapted from Mr. Doob's THREE.CSS3Renderer - threejs.org
 // https://github.com/mrdoob/three.js/blob/master/examples/js/renderers/CSS3DRenderer.js
 // ******************************************************************
-THREE.CSS3DObject = function (element) {
-  this.element = element;
-  this.element.style.position = 'absolute';
-  this.addEventListener('removed', function (event) {
-    if (this.element.parentNode !== null) {
-      this.element.parentNode.removeChild(this.element);
-      for (var i = 0, l = this.children.length; i < l; i ++) {
-        this.children[i].dispatchEvent(event);
-      }
-    }
-
-  });
-  return this;
-};
-
 THREE.CSS3DRenderer = function () {
   var _width, _height;
   var _widthHalf, _heightHalf;
@@ -83,7 +68,6 @@ THREE.CSS3DRenderer = function () {
       epsilon( elements[ 14 ] ) + ',' +
       epsilon( elements[ 15 ] ) +
     ')';
-
   };
 
   var getObjectCSSMatrix = function (matrix) {
@@ -107,7 +91,6 @@ THREE.CSS3DRenderer = function () {
       epsilon( elements[ 14 ] ) + ',' +
       epsilon( elements[ 15 ] ) +
     ')';
-
   };
 
   var renderObject = function (object, camera) {
