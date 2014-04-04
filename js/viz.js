@@ -24,8 +24,6 @@
 
   VIZ.drawElements = function (data) {
 
-    VIZ.count = data.length;
-
     var margin = {top: 17, right: 0, bottom: 16, left: 20},
         width  = 225 - margin.left - margin.right,
         height = 140 - margin.top  - margin.bottom;
@@ -57,8 +55,9 @@
         .attr('class', 'element')
         .style('width', elWidth + "px")
         .style('height', elHeight + "px")
-        .on('click', function () {
-          d3.select(this).style("background-color", "tomato")
+        .on('click', function (d) {
+          console.log(d);
+          d3.select(this).style("background-color", "tomato");
         });
 
     elements.append('div')
@@ -168,13 +167,15 @@
   }
 
   function objectify(d) {
-    var rndm = Math.random();
+    var rnd = Math.random;
     var geom = new THREE.CubeGeometry(elWidth, elHeight, 4);
-    var mtrl = new THREE.MeshBasicMaterial({wireframe: true});
-    var object = new Physijs.BoxMesh(geom, mtrl, 5);
-    object.rotation.set(rndm * 500, rndm * 500, rndm * 500);
-    object.position.set(rndm * 1000 - 500, rndm * 800 - 400, rndm * 200);
-    object.name = "chart-" + d.value;
+    var basic_mtrl = new THREE.MeshBasicMaterial({wireframe: false});
+    var physi_mtrl = Physijs.createMaterial(basic_mtrl, 0.9, 0.9);
+    var object = new Physijs.BoxMesh(geom, physi_mtrl, d.awards * 10);
+    object.rotation.set(rnd() * 100, rnd() * 100, rnd() * 100);
+    object.position.set(rnd() * 900 - 450, rnd() * 400, rnd() * 100);
+    object.name = d.name;
+    console.log(object);
     scene.add(THREE.CSS3DObject.call(object, this));
   }
 
