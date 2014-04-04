@@ -175,7 +175,6 @@
     object.rotation.set(rnd() * 100, rnd() * 100, rnd() * 100);
     object.position.set(rnd() * 900 - 450, rnd() * 400, rnd() * 100);
     object.name = d.name;
-    console.log(object);
     scene.add(THREE.CSS3DObject.call(object, this));
   }
 
