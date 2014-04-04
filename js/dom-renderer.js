@@ -16,7 +16,6 @@ THREE.CSS3DObject = function (element) {
   });
   return this;
 };
-THREE.CSS3DObject.prototype = Object.create(THREE.Object3D.prototype);
 
 THREE.CSS3DRenderer = function () {
   var _width, _height;
