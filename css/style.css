@@ -3,8 +3,7 @@ html, body {
 }
 
 body {
-  background-image:url('img/triangular.png');
-  background-color: #fff;
+  background-color: #333;
   margin: 0;
   font-family: Helvetica, sans-serif;;
   overflow: hidden;
@@ -15,8 +14,8 @@ a, p, h3, h6 {
   background: transparent;
 }
 
-h5 {
-  color: #000;
+h4 {
+  color: rgba(255,255,255, 0.5);
   padding-top: 35px;
 }
 
@@ -99,7 +98,7 @@ h5 {
   font-weight: bold;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgba(0,0,0,.65);
+  background-color: rgba(221,12,8,0.65);
   border: 2px solid rgba(127,255,255,0.25);
   border-radius: 8px;
   text-align: center;
